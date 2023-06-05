@@ -1,22 +1,12 @@
-const fs = require('fs')
+const fs = require("fs");
 
-let ObjetoUsuario = {
-    name: 'Maika',
-    surname: 'Nunyez',
-    age: 28
-}
+let user = { name: 'Jill', surname: 'Valentine', age: 35 };
 
-let data = JSON.stringify(ObjetoUsuario)
-
-fs.writeFile('ObjetoUsuario.json', data, (err) => {
-    if (err) console.log(err);
-    else {
-        console.log('Archivo se ha cargado con éxito');
-        console.log('El archivo tiene el siguiente contenido:');
-        fs.readFile('ObjetoUsuario.json', 'utf8',
-            (err, data) => {
-                err ? console.log(err) : console.log(data);
-            }
-        );
-    }
+fs.writeFile('./objetouser.json', JSON.stringify(user), () => {
+    fs.readFile('./objetouser.json', 'utf-8', (err, info) => {
+        user = JSON.parse(info);
+        console.log('Nombre:', user.name);
+        console.log('Apellido:', user.surname);
+        console.log('Edad:', user.age);
+    });
 })
