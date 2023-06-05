@@ -23,5 +23,6 @@ rl.question('Como te llamas?:', (name) => {
             });
             rl.close();
         });
-    });
+    }); 
 })
+

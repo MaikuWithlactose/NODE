@@ -9,4 +9,4 @@ fs.writeFile('./objetouser.json', JSON.stringify(user), () => {
         console.log('Apellido:', user.surname);
         console.log('Edad:', user.age);
     });
-})
+}) 
