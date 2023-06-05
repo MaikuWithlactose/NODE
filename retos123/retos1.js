@@ -10,6 +10,3 @@ const print = () => {
 }
 
 print();
-
-
-
