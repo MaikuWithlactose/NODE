@@ -2,6 +2,11 @@ const {Router} = require ("express")
 const router = Router();
 const usersCtrl = require("../controller/user.controller.js")
 
+router.use((req, res, next) => {
+    console.log('Petición recibida del cliente');
+    next();
+});  
+
 router.get("/", usersCtrl.getStart );
 // router.get("/usuario", usersCtrl.getUser);
 // router.get("/usuario/:id", usersCtrl.getUserParams);
