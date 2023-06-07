@@ -2,10 +2,21 @@ const { router } = require("../app");
 
 let usuario = null; //(nombre: "Jose", apellidos: "Garcia Garcia"}
 
-function getStart(request, response) {
+function getStart_PuntoInicio(request, response) {
     let respuesta = { error: true, codigo: 200, mensaje: 'Punto de inicio' };
     response.send(respuesta);
 }
+
+function getStart_Recibido(request, response) {
+    let respuesta = { ok: true, mensaje: 'Recibido!' };
+    response.send(respuesta);
+}
+
+function getStartAdios(request, response) {
+    let respuesta = { ok: true, mensaje: 'Taluego Lucarl!' };
+    response.send(respuesta);
+}
+
 
 // function getUser(request, response) {
     
@@ -21,5 +32,7 @@ function getStart(request, response) {
 // }
 
 module.exports = {
-  getStart: getStart  
+    getStart_PuntoInicio: getStart_PuntoInicio,
+    getStart_Recibido: getStart_Recibido,
+    getStartAdios: getStartAdios,
 };

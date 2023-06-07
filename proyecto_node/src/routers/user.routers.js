@@ -7,7 +7,8 @@ router.use((req, res, next) => {
     next();
 });  
 
-router.get("/", usersCtrl.getStart );
+router.get("/", usersCtrl.getStart_Recibido );
+router.get("/bye", usersCtrl.getStartAdios );
 // router.get("/usuario", usersCtrl.getUser);
 // router.get("/usuario/:id", usersCtrl.getUserParams);
 // router.post("/usuario", usersCtrl.postUser);
