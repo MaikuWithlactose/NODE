@@ -3,7 +3,7 @@ const router = Router();
 const usersCtrl = require("../controller/user.controller.js")
 
 router.use((req, res, next) => {
-    console.log('Petición recibida del cliente');
+    console.log('Petición recibida del cliente : URL: "'+ req.url +'" -METHOD:"'+ req.method +'" -USER:"'+req.headers['user-agent']+'"');
     next();
 });  
 
