@@ -1,6 +1,6 @@
 const { router } = require("../app");
 
-let book = 
+let book = [
   {
     title: 'El horror de Dunwich',
     genre: 'Horror',
@@ -9,7 +9,18 @@ let book =
     imageUrl: 'https://www.readandcobooks.co.uk/wp-content/uploads/dunwich-horror-lovecraft-9781447468554-cover-288x445.jpg',
     id_book: 3,
     id_user: 1
-  };
+  },
+  {
+    title: 'Los mitos de Cthulhu',
+    genre: 'Suspense',
+    author: 'H.P. Lovecraft',
+    price: 200.99,
+    imageUrl: 'http://chocoenfadadisimo.jpg',
+    id_book: 8,
+    id_user: 5
+  },
+];
+
 
 let listBooks = []
 
@@ -19,16 +30,16 @@ function getBook(request, response) {
 }
 
 function postBook(request, response) {
-    let newBook = request.query
-    listBooks.push(newBook)
+    let newBook = request.query;
+    listBooks.push(newBook);
 
     let respuesta = { ok: true, listBooks };
     response.send(respuesta);
 }
 
 function putBook(request, response) {
-    let editBook = request.query
-    let findedBook = listBooks.filter((book) => (book.id = editBook.id_book ))
+    let editBook = request.query;
+    let findedBook = listBooks.filter((book) => (book.id = editBook.id_book ));
 
     let respuesta = { };
     //Encuentra libro para editar
@@ -52,7 +63,7 @@ function deleteBook(request, response) {
   let findedBook = listBooks.filter((book) => (book.id = deleteBook ))
 
   let respuesta = { };
-  //Encuentra libro para editar
+  //Encuentra libro para edit 
   if(findedBook != undefined){
     let indexToReplace = listBooks.findIndex(book => book.title === deleteBook);
     listBooks.splice(indexToReplace,1);

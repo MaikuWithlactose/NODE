@@ -12,4 +12,4 @@ router.post("/book", bookCtrl.postBook );
 router.put("/book", bookCtrl.putBook );
 router.delete("/book", bookCtrl.deleteBook );
 
-module.exports = router; 
+module.exports = router;
