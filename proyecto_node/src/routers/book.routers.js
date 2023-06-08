@@ -7,9 +7,10 @@ router.use((req, res, next) => {
     next();
 });  
 
-router.get("/book", bookCtrl.getBook );
-router.post("/book", bookCtrl.postBook );
-router.put("/book", bookCtrl.putBook );
-router.delete("/book", bookCtrl.deleteBook );
+router.get("/books", bookCtrl.getBooks );
+router.get("/books/:id", bookCtrl.getBookByID );
+router.post("/books", bookCtrl.postBook );
+router.put("/books", bookCtrl.putBook );
+router.delete("/books", bookCtrl.deleteBook );
 
 module.exports = router;

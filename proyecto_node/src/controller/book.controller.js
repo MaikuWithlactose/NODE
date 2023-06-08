@@ -1,6 +1,6 @@
 const { router } = require("../app");
 
-let book = [
+let listBooks = [
   {
     title: 'El horror de Dunwich',
     genre: 'Horror',
@@ -12,28 +12,59 @@ let book = [
   },
   {
     title: 'Los mitos de Cthulhu',
-    genre: 'Suspense',
+    genre: 'Horror',
     author: 'H.P. Lovecraft',
-    price: 200.99,
-    imageUrl: 'http://chocoenfadadisimo.jpg',
-    id_book: 8,
-    id_user: 5
+    price: 16.99,
+    imageUrl: 'https://www.readandcobooks.co.uk/wp-content/uploads/tales-in-cthulhu-mythos-lovecraft-9781447468912-cover-288x445.jpg',
+    id_book: 5,
+    id_user: 2
   },
+  {
+    title: 'El llamado de Cthulhu',
+    genre: 'Horror',
+    author: 'H.P. Lovecraft',
+    price: 15.99,
+    imageUrl: 'https://www.readandcobooks.co.uk/wp-content/uploads/call-of-cthulhu-lovecraft-9781447418320-cover-288x445.jpg',
+    id_book: 6,
+    id_user: 2
+  },
+  {
+    title: 'El caso de Charles Dexter Ward',
+    genre: 'Horror',
+    author: 'H.P. Lovecraft',
+    price: 11.99,
+    imageUrl: 'https://www.readandcobooks.co.uk/wp-content/uploads/outsider-lovecraft-9781528717175-cover-288x445.jpg',
+    id_book: 7,
+    id_user: 5
+  }
 ];
 
-
-let listBooks = []
-
-function getBook(request, response) {
-    let respuesta = { codigo: 200, book: book };
+function getBooks(request, response) {
+    let respuesta = { codigo: 200, book: listBooks };
     response.send(respuesta);
+}
+
+function getBookByID(request, response) {
+console.log(listBooks);
+  let bookFinded = listBooks.find((findBook) => findBook.id_book == request.params.id);
+
+  console.log(request.params.id);
+  console.log(bookFinded);
+
+  let respuesta = {};
+
+  bookFinded === undefined
+    ? (respuesta = { codigo: 404, message: 'Book no encontrado', idFinded: request.params.id })
+    : (respuesta = { codigo: 200, book: bookFinded });
+
+  response.send(respuesta);
 }
 
 function postBook(request, response) {
     let newBook = request.query;
     listBooks.push(newBook);
 
-    let respuesta = { ok: true, listBooks };
+    let respuesta = { ok: true, idNewBook: request.query.id_book };
     response.send(respuesta);
 }
 
@@ -48,10 +79,10 @@ function putBook(request, response) {
       listBooks.splice(indexToReplace,1);
       listBooks.push(editBook);
 
-      respuesta = { ok: true, idModificado: editBook.id_book, listBooks }
+      respuesta = { ok: true, idUpdateBook: editBook.id_book }
     }
     else{
-      respuesta = { ok: false, idModificado: "No encontrado", mensaje:"Error, libro para editar no encontrado" }
+      respuesta = { ok: false, idUpdateBook: "No encontrado", mensaje:"Error, libro para editar no encontrado" }
     }
 
     
@@ -63,7 +94,7 @@ function deleteBook(request, response) {
   let findedBook = listBooks.filter((book) => (book.id = deleteBook ))
 
   let respuesta = { };
-  //Encuentra libro para edit 
+  //Encuentra libro para editar
   if(findedBook != undefined){
     let indexToReplace = listBooks.findIndex(book => book.title === deleteBook);
     listBooks.splice(indexToReplace,1);
@@ -78,7 +109,8 @@ function deleteBook(request, response) {
 }
 
 module.exports = {
-  getBook: getBook,
+  getBooks: getBooks,
+  getBookByID: getBookByID,
   postBook: postBook,
   putBook: putBook,
   deleteBook: deleteBook
