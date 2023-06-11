@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  background-image: url('https://wallpapercave.com/wp/wp3170170.jpg');
+  background-repeat: no-repeat;
+  background-size: 120vh;
+  background-attachment: fixed;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #f1f1f1;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0;
+  padding: 1rem;
+  text-align: center;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.card {
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(243, 240, 92, 0.89);
+    padding: 20px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #918686;
+    background-image: url('https://e1.pxfuel.com/desktop-wallpaper/694/543/desktop-wallpaper-pokedex-template-by-hatirem-pokemon-pokedex-background-thumbnail.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 250px;
+    height: 400px;
+  }
+
+.card img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.card-content {
+  text-align: center;
+}
+
+.card-content h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #000000;
+}
+
+.card-content p {
+  margin: 0;
+  line-height: 1.5;
+  color: #014f7c;
+}
+
+
+.poke-card img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.poke-card .card-content {
+  text-align: center;
+}
+
+.poke-card .card-content h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #f1f1f1;
+}
+
+.poke-card .card-content p {
+  margin: 0;
+  line-height: 1.5;
+  color: #f1f1f1;
+}
+
+#pokemonForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+#pokemonForm label {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+#pokemonForm input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+#pokemonForm button {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background-color: rgb(218, 131, 131);
+  color: #6c88e6;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#pokemonForm button:hover {
+  background-color: rgb(174, 228, 235);
+}
